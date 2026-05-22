@@ -83,7 +83,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
           child: Padding(
             padding: const EdgeInsets.all(16),
             child: Form(
-              key: _formKey,
+              key: _formKey, // final _formKey = Global<FormState>();  if(_formKey.currentState!.validate())
               autovalidateMode: AutovalidateMode.onUserInteraction,
               child: Column(
                 children: [
@@ -93,6 +93,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                       labelText: 'Full Name',
                       border: OutlineInputBorder(),
                     ),
+                    //validator: (value) => Validators.requiredField(value, 'Full Name'),
                     validator: (value) => Validators.requiredField(value, 'Full Name'),
                   ),
                   const SizedBox(height: 16),

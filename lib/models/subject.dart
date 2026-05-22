@@ -1,13 +1,27 @@
+// lib/models/subject.dart
 class Subject {
-  final String name;
-  final String description;
-  final String schedule;
-  final String bannerUrl;
+  final int? id;
+  final String title;
+  final String body;
 
   Subject({
-    required this.name,
-    required this.description,
-    required this.schedule,
-    required this.bannerUrl,
+    this.id,
+    required this.title,
+    required this.body,
   });
+
+  factory Subject.fromJson(Map<String, dynamic> json) {
+    return Subject(
+      id: json['id'],
+      title: json['title'],
+      body: json['body'],
+    );
+  }
+
+  Map<String, dynamic> toJson() {
+    return {
+      'title': title,
+      'body': body,
+    };
+  }
 }
